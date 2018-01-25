@@ -11,8 +11,24 @@ import UIKit
 class ViewController: UIViewController {
     var buttonCount = 0
     @IBOutlet weak var coolLabel: UILabel!
+    @IBOutlet weak var topTextfield: UITextField!
+    @IBOutlet weak var bottomTextfield: UITextField!
+    @IBOutlet weak var additionSwitch: UISwitch!
     
     @IBAction func buttonTapped(_ sender: Any) {
+        
+        let addition = additionSwitch.isOn
+        
+        if addition{
+            let sum = Double(topTextfield.text!)! + Double(bottomTextfield.text!)!
+             coolLabel.text = "\(topTextfield.text!) + \(bottomTextfield.text!) = \(sum)"
+        }
+        else {
+            let sum = Double(topTextfield.text!)! - Double(bottomTextfield.text!)!
+             coolLabel.text = "\(topTextfield.text!) - \(bottomTextfield.text!) = \(sum)"
+        }
+}
+/*
         buttonCount = buttonCount + 1
         if buttonCount >= 10 {
         view.backgroundColor = UIColor.red
@@ -37,4 +53,5 @@ class ViewController: UIViewController {
 
 
 }
-
+*/
+}
